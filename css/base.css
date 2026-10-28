@@ -1,0 +1,17 @@
+/* Shared by everyone. Don't put personal styling here; use members/memberN/memberN.css */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#e9eef7;--fg:#1d2742;--accent:#d6336c;--muted:#5d6b8a;--card:#f9fbff}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);line-height:1.7;overflow-x:hidden}
+.morph-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.blob{position:absolute;width:60vmax;height:60vmax;background:var(--accent);filter:blur(50px);opacity:.16;animation:wobble 14s ease-in-out infinite;will-change:transform}
+.b1{top:-20vmax;left:-15vmax}
+.b2{bottom:-25vmax;right:-18vmax;opacity:.1;animation-delay:-7s}
+@keyframes wobble{0%,100%{border-radius:60% 40% 55% 45%/55% 45% 60% 40%}50%{border-radius:40% 60% 45% 55%/45% 60% 40% 55%}}
+.member{min-height:100vh;max-width:960px;margin:0 auto;padding:14vh 6vw}
+.placeholder{display:grid;place-content:center;text-align:center;gap:.5rem}
+.dots{position:fixed;right:18px;top:50%;transform:translateY(-50%);display:grid;gap:14px;z-index:5}
+.dots button{width:14px;height:14px;border-radius:50%;border:2px solid var(--accent);background:transparent;cursor:pointer;transition:transform .3s,background .3s}
+.dots button.on{background:var(--accent);transform:scale(1.4)}
+.dots button:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.blob{animation:none}}
